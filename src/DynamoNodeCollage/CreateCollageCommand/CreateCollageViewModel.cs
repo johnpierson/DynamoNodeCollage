@@ -71,7 +71,7 @@ namespace DynamoNodeCollage.CreateCollageCommand
         {
             Colors = Model.GetPixels(ImagePath,Density);
 
-            NodeCount = Colors.Length * Colors.Rank;
+            NodeCount = Colors.Length * Colors.GetLength(0);
         }
 
         public void OnPlaceNodes(object o)

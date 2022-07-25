@@ -15,8 +15,16 @@
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Button Content="Pick Image" Margin="12" Command="{Binding OpenImage, Mode=OneWay}" CommandParameter="{Binding ElementName=Win}"/>
-        <Slider Margin="12" Grid.Row="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True" TickFrequency="1" Minimum="1" Maximum="50" Value="{Binding Density, Mode=TwoWay, FallbackValue=10}"/>
-        <TextBlock TextWrapping="Wrap" IsHitTestVisible="False" Grid.Row="2" Text="{Binding NodeCount, StringFormat={}{0} nodes wille be created in the workspace. If this number is huge. Be patient..}"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="{Binding Density,StringFormat={}{0} Density}"/>
+            <Slider Margin="12" Grid.Column="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True" TickFrequency="1" Minimum="1" Maximum="50" Value="{Binding Density, Mode=TwoWay, FallbackValue=10}"/>
+
+        </Grid>
+        <TextBlock TextWrapping="Wrap" IsHitTestVisible="False" Grid.Row="2" Text="{Binding NodeCount, StringFormat={}{0} nodes will be created in the workspace. If this number is huge. Be patient..}"/>
         <Button Content="Read Colors" Grid.Row="3" Margin="12" Command="{Binding ReadColors, Mode=OneWay}" CommandParameter="{Binding ElementName=Win}"/>
         <Button Content="Place Nodes" Grid.Row="4" Margin="12" Command="{Binding PlaceNodes, Mode=OneWay}" CommandParameter="{Binding ElementName=Win}"/>
     </Grid>
